@@ -1,0 +1,4 @@
+flask
+clickhouse-connect
+python-dotenv
+clickhouse-driver

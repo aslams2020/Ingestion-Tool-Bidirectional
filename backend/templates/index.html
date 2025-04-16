@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bidirectional Ingestion Tool</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="/static/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Source Selection -->
+        <div class="card">
+            <h2>Source Configuration</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-target="clickhouse-tab">ClickHouse</button>
+                <button class="tab-btn" data-target="file-tab">Flat File</button>
+            </div>
+            
+            <!-- ClickHouse Config -->
+            <div id="clickhouse-tab" class="tab-content active">
+                <input type="text" id="ch-host" placeholder="Host" value="localhost">
+                <input type="number" id="ch-port" placeholder="Port" value="9000">
+                <input type="text" id="ch-db" placeholder="Database">
+                <input type="text" id="ch-user" placeholder="Username">
+                <input type="password" id="ch-pass" placeholder="Password">
+                <input type="text" id="ch-jwt" placeholder="JWT Token (optional)">
+                <button id="ch-connect">Connect</button>
+            </div>
+            
+            <!-- Flat File Config -->
+            <div id="file-tab" class="tab-content">
+                <input type="file" id="file-upload">
+                <input type="text" id="file-delimiter" placeholder="Delimiter" value=",">
+                <button id="file-upload-btn">Upload</button>
+            </div>
+        </div>
+
+        <!-- Schema Discovery -->
+        <div class="card" id="schema-section" style="display:none;">
+            <h2>Schema Discovery</h2>
+            <div id="table-selection"></div>
+            <div id="column-selection"></div>
+            <div id="join-config" style="display:none;">
+                <h3>Join Configuration</h3>
+                <div id="join-conditions"></div>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="card" id="action-section" style="display:none;">
+            <button id="preview-btn">Preview Data</button>
+            <button id="ingest-btn">Start Ingestion</button>
+            <div id="progress-container">
+                <div id="progress-bar"></div>
+                <span id="progress-text">0%</span>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="card" id="result-section">
+            <h2>Results</h2>
+            <div id="status-message"></div>
+            <div id="data-preview"></div>
+        </div>
+    </div>
+
+    <div id="error-message" style="color: red; margin: 10px 0;"></div>
+
+<script>
+function updateStatus(message, type = 'success') {
+    const element = document.getElementById('error-message');
+    element.textContent = message;
+    element.style.color = type === 'error' ? 'red' : 'green';
+}
+</script>
+
+</body>
+</html>
