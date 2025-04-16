@@ -1,8 +1,10 @@
 # Zeotap Bidirectional Data Ingestion Tool (Assignment 2) Solution 
 
 Submitted By - Aslam Sayyad
-Github - https://github.com/aslams2020
-Linkedin - https://www.linkedin.com/in/aslamsayyad02/
+<br> 
+Github - [Link](https://github.com/aslams2020)
+<br> 
+Linkedin - [Link](https://www.linkedin.com/in/aslamsayyad02/) 
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue)
 ![ClickHouse](https://img.shields.io/badge/ClickHouse-24.3-yellow)
